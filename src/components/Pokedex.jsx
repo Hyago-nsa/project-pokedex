@@ -2,13 +2,32 @@ import React from "react";
 import Pagination from "./Pagination";
 import "./Pokedex.css";
 import Pokemon from "./Pokemon";
-const Pokedex = ({ pokemons, loading }) => {
+const Pokedex = ({ pokemons, loading, page, setPage,totalPages }) => {
   console.log(pokemons);
+
+  const onLeftClickHandler = () => {
+    if (page > 0 ){
+      setPage(page - 1)
+    }
+    console.log("anterior")
+  }
+
+  const onRightClickHandler = () => {
+    if (page < totalPages - 1){
+      setPage(page + 1)
+    }
+    console.log("proximo")
+  }
   return (
     <div>
       <div className="pokedex-header">
         <h1> Pokedex</h1>
-        <Pagination />
+        <Pagination
+          page={page + 1}
+          totalPages={totalPages}
+          onLeftClick={onLeftClickHandler}
+          onRightClick={onRightClickHandler}
+        />
       </div>
       {loading ? (
         <div>Carregando</div>
