@@ -3,7 +3,7 @@ import Pagination from "./Pagination";
 import "./Pokedex.css";
 import Pokemon from "./Pokemon";
 const Pokedex = ({ pokemons, loading, page, setPage,totalPages }) => {
-  console.log(pokemons);
+  // console.log(pokemons);
 
   const onLeftClickHandler = () => {
     if (page > 0 ){

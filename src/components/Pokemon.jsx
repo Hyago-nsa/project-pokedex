@@ -1,20 +1,26 @@
 import React from "react";
-import "./Pokemon.css"
+import { useContext } from "react";
+import FavoriteContext from "../assets/contexts/favoritesContext";
+import "./Pokemon.css";
 
 const Pokemon = ({ pokemon }) => {
-  const onHeartClick=()=>{
-    console.log("favoritado")
-  }
+  const { favoritePokemons, updateFavoritePokemons } =
+    useContext(FavoriteContext);
 
+  const onHeartClick = () => {
+    updateFavoritePokemons(pokemon.name);
+  };
 
-  console.log(pokemon);
+  const heart = favoritePokemons.includes(pokemon.name) ? "❤️" : "🖤";
+
+  // console.log(pokemon);
   return (
     <div className="pokemon-card">
       <div className="pokemon-image-container">
         <img
           className="pokemon-image"
           alt={pokemon.name}
-          src={pokemon.sprites.front_default}
+          src={pokemon.sprites.versions["generation-v"]["black-white"].animated.front_default}
         />
       </div>
       <div className="card-body">
@@ -32,7 +38,9 @@ const Pokemon = ({ pokemon }) => {
               );
             })}
           </div>
-          <button className="pokemon-heart-btn" onClick={onHeartClick}>💖</button>
+          <button className="pokemon-heart-btn" onClick={onHeartClick}>
+            {heart}
+          </button>
         </div>
       </div>
     </div>
