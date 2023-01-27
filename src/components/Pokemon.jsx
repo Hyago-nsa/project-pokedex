@@ -20,7 +20,7 @@ const Pokemon = ({ pokemon }) => {
         <img
           className="pokemon-image"
           alt={pokemon.name}
-          src={pokemon.sprites.versions.generation-v.black-white.animated.front_default}
+          src={pokemon["sprites"]["versions"]["generation-v"]["black-white"]["animated"]["front_default"]}
         />
       </div>
       <div className="card-body">
