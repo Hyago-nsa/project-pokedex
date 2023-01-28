@@ -12,15 +12,19 @@ const Pokemon = ({ pokemon }) => {
   };
 
   const heart = favoritePokemons.includes(pokemon.name) ? "❤️" : "🖤";
+  const backgroundType = pokemon.types[0].type.name;
 
-  // console.log(pokemon);
   return (
-    <div className="pokemon-card">
+    <div className={"pokemon-card " + backgroundType}>
       <div className="pokemon-image-container">
         <img
           className="pokemon-image"
           alt={pokemon.name}
-          src={pokemon["sprites"]["versions"]["generation-v"]["black-white"]["animated"]["front_default"]}
+          src={
+            pokemon["sprites"]["versions"]["generation-v"]["black-white"][
+              "animated"
+            ]["front_default"]
+          }
         />
       </div>
       <div className="card-body">
@@ -32,7 +36,11 @@ const Pokemon = ({ pokemon }) => {
           <div className="pokemon-type">
             {pokemon.types.map((types, index) => {
               return (
-                <div className="pokemon-type-text" key={index}>
+                <div
+    
+                  className={"pokemon-type-text " + backgroundType}
+                  key={index}
+                >
                   {types.type.name}
                 </div>
               );

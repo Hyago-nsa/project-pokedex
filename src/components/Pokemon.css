@@ -4,6 +4,10 @@
   border-radius: 3px;
 }
 
+.water{
+  background-image: url("../assets/images/water.png");
+}
+
 .pokemon-image-container {
   padding: 0px 5px;
 }

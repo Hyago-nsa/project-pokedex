@@ -5,13 +5,15 @@
 
 .searchbar {
   background-color: white;
+
 }
 
 .searchbar input {
   font-size: 20px;
   padding: 10px;
   margin-left: 20px;
-  box-shadow: 0 2px 2px (0, 0, 0, 0.25);
+  box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
+
   border: none;
 }
 
