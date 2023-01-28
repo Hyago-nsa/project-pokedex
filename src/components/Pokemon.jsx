@@ -35,13 +35,11 @@ const Pokemon = ({ pokemon }) => {
         <div className="card-bottom">
           <div className="pokemon-type">
             {pokemon.types.map((types, index) => {
+              const pokemonType = types.type.name;
+
               return (
-                <div
-    
-                  className={"pokemon-type-text " + backgroundType}
-                  key={index}
-                >
-                  {types.type.name}
+                <div className={"pokemon-type-text " + pokemonType} key={index}>
+                  {pokemonType}
                 </div>
               );
             })}
