@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPokemonData, getPokemons } from "./api";
+import { getPokemonData, getPokemons, searchPokemon } from "./api";
 import { FavoriteProvider } from "./assets/contexts/favoritesContext";
 import Navbar from "./components/Navbar";
 import Pokedex from "./components/Pokedex";
@@ -7,6 +7,7 @@ import Searchbar from "./components/Searchbar";
 
 const App = () => {
   const [loading, setLoading] = useState(false);
+  const [notFound, setNotFound] = useState(false);
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -32,8 +33,19 @@ const App = () => {
     }
   };
 
+  const favoritesKey = "f";
+
+  const loadFavoritePokemons = () => {
+    const pokemons =
+      JSON.parse(window.localStorage.getItem(favoritesKey)) || [];
+    setFavorites(pokemons);
+  };
+
   useEffect(() => {
-    console.log("Carregou!");
+    loadFavoritePokemons();
+  }, []);
+
+  useEffect(() => {
     fetchPokemons();
   }, [page]);
 
@@ -46,7 +58,27 @@ const App = () => {
     } else {
       updateFavorites.push(name);
     }
+    window.localStorage.setItem(favoritesKey, JSON.stringify(updateFavorites));
     setFavorites(updateFavorites);
+  };
+
+  const onSearchHandler = async (pokemon) => {
+    if (!pokemon) {
+      return fetchPokemons();
+    }
+
+    setLoading(true);
+    setNotFound(false);
+    const result = await searchPokemon(pokemon);
+
+    if (!result) {
+      setNotFound(true);
+    } else {
+      setPokemons([result]);
+      setPage(0)
+      setTotalPages(1)
+    }
+    setLoading(false);
   };
 
   return (
@@ -58,14 +90,18 @@ const App = () => {
     >
       <div>
         <Navbar />
-        <Searchbar />
-        <Pokedex
-          pokemons={pokemons}
-          loading={loading}
-          page={page}
-          setPage={setPage}
-          totalPages={totalPages}
-        />
+        <Searchbar onSearch={onSearchHandler} />
+        {notFound ? (
+          <div>Not found</div>
+        ) : (
+          <Pokedex
+            pokemons={pokemons}
+            loading={loading}
+            page={page}
+            setPage={setPage}
+            totalPages={totalPages}
+          />
+        )}
       </div>
     </FavoriteProvider>
   );
