@@ -12,7 +12,7 @@ const Navbar = () => {
         alt="PokéAPI"
         src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
       />
-      <div>❤️{favoritePokemons.length}</div>
+      <div className="heart">❤️{favoritePokemons.length}</div>
     </nav>
   );
 };

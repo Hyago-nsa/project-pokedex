@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./App.css"
 import { getPokemonData, getPokemons, searchPokemon } from "./api";
 import { FavoriteProvider } from "./assets/contexts/favoritesContext";
 import Navbar from "./components/Navbar";
@@ -18,6 +19,7 @@ const App = () => {
   const fetchPokemons = async () => {
     try {
       setLoading(true);
+      setNotFound(false)
       const data = await getPokemons(itensPerPage, itensPerPage * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url);
@@ -92,7 +94,7 @@ const App = () => {
         <Navbar />
         <Searchbar onSearch={onSearchHandler} />
         {notFound ? (
-          <div>Not found</div>
+          <div className="not-found">Not found</div>
         ) : (
           <Pokedex
             pokemons={pokemons}

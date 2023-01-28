@@ -38,7 +38,7 @@ const Pokemon = ({ pokemon }) => {
               );
             })}
           </div>
-          <button className="pokemon-heart-btn" onClick={onHeartClick}>
+          <button className="heart" onClick={onHeartClick}>
             {heart}
           </button>
         </div>
