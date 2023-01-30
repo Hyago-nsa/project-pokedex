@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./App.css"
+import "./App.css";
 import { getPokemonData, getPokemons, searchPokemon } from "./api";
 import { FavoriteProvider } from "./assets/contexts/favoritesContext";
-import Navbar from "./components/Navbar";
 import Pokedex from "./components/Pokedex";
 import Searchbar from "./components/Searchbar";
 
@@ -19,7 +18,7 @@ const App = () => {
   const fetchPokemons = async () => {
     try {
       setLoading(true);
-      setNotFound(false)
+      setNotFound(false);
       const data = await getPokemons(itensPerPage, itensPerPage * page);
       const promises = data.results.map(async (pokemon) => {
         return await getPokemonData(pokemon.url);
@@ -77,8 +76,8 @@ const App = () => {
       setNotFound(true);
     } else {
       setPokemons([result]);
-      setPage(0)
-      setTotalPages(1)
+      setPage(0);
+      setTotalPages(1);
     }
     setLoading(false);
   };
@@ -90,8 +89,7 @@ const App = () => {
         updateFavoritePokemons: updateFavoritePokemons,
       }}
     >
-      <div>
-        <Navbar />
+      <div className="app-bg">
         <Searchbar onSearch={onSearchHandler} />
         {notFound ? (
           <div className="not-found">Not found</div>

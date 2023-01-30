@@ -4,9 +4,20 @@ import "./Pagination.css";
 const Pagination = ({ page, totalPages, onLeftClick, onRightClick }) => {
   return (
     <div className="pagination-container">
-      <button className="pagination-btn" onClick={onLeftClick}><div>◀️</div></button>
-      <div>{page} de {totalPages}</div>
-      <button className="pagination-btn" onClick={onRightClick}><div>▶️</div></button>
+      <div className="pagination-box"></div>
+      <div className="pagination-subbox">
+        <button className="pagination-btn" onClick={onLeftClick}>
+          <div>◀️</div>
+        </button>
+        <div>
+          <h1>
+            {page} de {totalPages}
+          </h1>
+        </div>
+        <button className="pagination-btn" onClick={onRightClick}>
+          <div>▶️</div>
+        </button>
+      </div>
     </div>
   );
 };

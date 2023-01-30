@@ -4,10 +4,20 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  background-color: #616161;
+  border-bottom: 5px solid #717171;
+  border-radius: 999px;
 }
 
-.pokedex-grid{
-    display: grid;
-    gap:10px;
-    grid-template-columns: repeat(3, 1fr);
+.pokedex-grid {
+  
+  background-color: #818181;
+  border-left: 5px solid #717171;
+  border-right: 5px solid #717171;
+  padding: 20px;
+  max-width: 70vw;
+  margin-left: 15vw;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
 }

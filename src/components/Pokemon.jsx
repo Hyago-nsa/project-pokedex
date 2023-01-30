@@ -15,7 +15,7 @@ const Pokemon = ({ pokemon }) => {
   const backgroundType = pokemon.types[0].type.name;
 
   return (
-    <div className={"pokemon-card " + backgroundType}>
+    <div className={"pokemon-card " + backgroundType + "-bg"}>
       <div className="pokemon-image-container">
         <img
           className="pokemon-image"
@@ -30,23 +30,31 @@ const Pokemon = ({ pokemon }) => {
       <div className="card-body">
         <div className="card-top">
           <h3>{pokemon.name}</h3>
-          <div>#{pokemon.id}</div>
+          <div>
+            <h3>#{pokemon.id}</h3>
+          </div>
         </div>
         <div className="card-bottom">
           <div className="pokemon-type">
-            {pokemon.types.map((types, index) => {
-              const pokemonType = types.type.name;
+            <div className="pokemon-types">
+              {pokemon.types.map((types, index) => {
+                const pokemonType = types.type.name;
 
-              return (
-                <div className={"pokemon-type-text " + pokemonType} key={index}>
-                  {pokemonType}
-                </div>
-              );
-            })}
+                return (
+                  <div
+                    className={"pokemon-type-text " + pokemonType + "-type"}
+                    key={index}
+                  >
+                    {pokemonType}
+                  </div>
+                );
+              })}
+            </div>
+
+            <button className="heart" onClick={onHeartClick}>
+              {heart}
+            </button>
           </div>
-          <button className="heart" onClick={onHeartClick}>
-            {heart}
-          </button>
         </div>
       </div>
     </div>
