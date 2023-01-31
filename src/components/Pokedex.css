@@ -5,7 +5,7 @@
   align-items: center;
   padding: 10px;
   background-color: #616161;
-  border-bottom: 5px solid #717171;
+  border-bottom: 8px solid #717171;
   border-radius: 999px;
 }
 
@@ -14,6 +14,7 @@
   background-color: #818181;
   border-left: 5px solid #717171;
   border-right: 5px solid #717171;
+  border-bottom: 5px solid #717171;
   padding: 20px;
   max-width: 70vw;
   margin-left: 15vw;
