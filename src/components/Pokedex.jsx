@@ -29,7 +29,7 @@ const Pokedex = ({ pokemons, loading, page, setPage, totalPages }) => {
         />
       </div>
       {loading ? (
-        <div>Carregando</div>
+        <div className="carregando">Carregando</div>
       ) : (
         <div className="pokedex-grid">
           {pokemons &&

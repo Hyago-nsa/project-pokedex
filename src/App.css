@@ -2,16 +2,19 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+body{
+  background:url(https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png);
+}
+
 .App {
   text-align: center;
 }
 
 .not-found {
-  text-align: center;
-  font-size: 1.25rem;
-  padding: 20px;
-}
-
-.app-bg{
-    background:url(https://assets.pokemon.com/static2/_ui/img/chrome/body_bg.png);
+  display: flex;
+  justify-content: center;
+  text-shadow: -4px 0 black, 0 4px black, 4px 0 black, 0 -4px black;
+  color: white;
+  font-size: 50px;
+  margin-top: 10vh;
 }
