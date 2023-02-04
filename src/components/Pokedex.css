@@ -10,7 +10,6 @@
 }
 
 .pokedex-grid {
-  
   background-color: #818181;
   border-left: 5px solid #717171;
   border-right: 5px solid #717171;
@@ -18,7 +17,8 @@
   padding: 20px;
   max-width: 70vw;
   margin-left: 15vw;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   grid-template-columns: repeat(3, 1fr);
 }

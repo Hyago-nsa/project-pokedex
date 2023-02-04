@@ -3,6 +3,11 @@
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   transition: all 0.2s;
+
+  flex: 1 0 21%; /* explanation below */
+  margin: 3px;
+
+  background-color: blue;
 }
 
 .pokemon-card:hover {
