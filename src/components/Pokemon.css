@@ -4,7 +4,7 @@
   border-radius: 10px;
   transition: all 0.2s;
 
-  flex: 1 0 21%; /* explanation below */
+  flex: 1 0 400px; /* explanation below */
   margin: 3px;
 
   background-color: blue;
